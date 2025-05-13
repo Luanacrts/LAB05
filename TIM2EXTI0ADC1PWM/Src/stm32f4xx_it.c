@@ -218,13 +218,13 @@ void EXTI0_IRQHandler(void)
   */
 void ADC_IRQHandler(void)
 {
-  /* USER CODE BEGIN ADC_IRQn 0 */
-
-  /* USER CODE END ADC_IRQn 0 */
-  HAL_ADC_IRQHandler(&hadc1);
-  /* USER CODE BEGIN ADC_IRQn 1 */
-
-  /* USER CODE END ADC_IRQn 1 */
+/* USER CODE BEGIN ADC_IRQn 0 */
+uint16_t adc1in1;
+/* USER CODE END ADC_IRQn 0 */
+HAL_ADC_IRQHandler(&hadc1);
+/* USER CODE BEGIN ADC_IRQn 1 */
+adc1in1 = HAL_ADC_GetValue(&hadc1);
+/* USER CODE END ADC_IRQn 1 */
 }
 
 /**
@@ -232,13 +232,12 @@ void ADC_IRQHandler(void)
   */
 void TIM2_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM2_IRQn 0 */
-
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-
-  /* USER CODE END TIM2_IRQn 1 */
+/* USER CODE BEGIN TIM2_IRQn 0 */
+HAL_ADC_Start_IT(&hadc1);
+/* USER CODE END TIM2_IRQn 0 */
+HAL_TIM_IRQHandler(&htim2);
+/* USER CODE BEGIN TIM2_IRQn 1 */
+/* USER CODE END TIM2_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
